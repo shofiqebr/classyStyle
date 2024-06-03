@@ -3,7 +3,7 @@ const Footer = () => {
     <div className="bg-[#f7941f] ">
       <div className="mt-16 p-2 pt-12">
         <div className="mx-auto w-full max-w-screen-xl px-4 xl:px-0">
-          <div className="flex flex-col justify-between gap-6 sm:px-[18px] md:flex-row md:px-10">
+          <div className="flex flex-col justify-between md:justify-center lg:items-start md:items-center gap-6 sm:px-[18px] lg:flex-row md:px-10 lg:pl-20">
             <div className="md:w-[316px]">
               <div className="text-[18px] font-medium text-white">
                 <div className="text-white font-extrabold">
@@ -205,7 +205,7 @@ const Footer = () => {
             </div>
           </div>
           <hr className="mt-[30px] text-white" />
-          <div className="flex flex-col md:flex-row gap-3 items-center justify-center pt-[9px] md:py-8">
+          <div className="flex flex-col  gap-3 items-center justify-center pt-[9px] md:py-8 lg:pl-20">
             <p className="flex-1 font-bold">
               Copyright © Classy Style 2022 Development IONIC Corporation
             </p>

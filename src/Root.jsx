@@ -7,13 +7,13 @@ import Navbar4 from "./Shared/Navbar/Navbar4";
 
 const Root = () => {
   return (
-    <div>
+    <div >
       <Navbar4/>
       <Navbar />
       <Navbar2 />
       <Navbar3 />
-      <div>
-        <Outlet />
+      <div className="md:ml-20">
+        <Outlet  />
       </div>
       <div >
         <Footer />

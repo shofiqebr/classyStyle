@@ -77,7 +77,7 @@ const Navbar3Category = () => {
   return (
     <>
       <li className="relative p-4 group z-[99]">
-        <Link className="flex uppercase items-center text-white font-bold gap-1">
+        <Link to='/allCategory' className="flex uppercase items-center text-white font-bold gap-1">
           ALl Category <IoIosArrowDown />
         </Link>
         <ul className="absolute md:top-12 shadow-lg border bg-white left-0 mt-2 text-black  opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden group-hover:block rounded-lg">

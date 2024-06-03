@@ -76,7 +76,7 @@ const Navbar4 = () => {
   //   ];
 
   return (
-    <div className="fixed hidden lg:top-0 md:block lg:left-0 z-[9999] h-screen group w-20 bg-white shadow-2xl rounded-md hover:w-64 transform duration-500 px-4 p-3 ">
+    <div className="fixed hidden lg:top-0 md:block lg:left-0 z-[9999] h-screen md:h-full group w-20 bg-white shadow-2xl rounded-md hover:w-64 transform duration-500 px-4 p-3 ">
       <div className="">
         <div className="flex flex-col  gap-8">
           <div className="p-2 border w-14 bg-[#2794E9EA] transform duration-500 group-hover:w-56 rounded-full">

@@ -1,6 +1,7 @@
 import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { TiArrowShuffle } from "react-icons/ti";
+import { Link } from "react-router-dom";
 
 const Navbar2icon = () => {
   return (
@@ -20,9 +21,11 @@ const Navbar2icon = () => {
           <span className="font-bold text-xl text-white">0</span>
         </div>
       </div>
+      <Link to='/login'>
       <div className="border-2 border-[#27aae1] p-2 rounded-full">
         <CiUser className="text-2xl p-1" />
       </div>
+      </Link>
     </div>
   );
 };
