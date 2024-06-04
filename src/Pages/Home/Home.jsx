@@ -4,6 +4,8 @@ import PopularCategory from "../../Components/PopularCategory/PopularCategory";
 import Trending from "../../Components/Trending/Trending";
 import AdsImages from "../../Components/AdsImages/AdsImages";
 import { Helmet } from "react-helmet-async";
+import HomeDecor from "../../Components/homeDecor/HomeDecor";
+// import MobileNavDown from "../../Components/mobileNavDown/MobileNavDown";
 
 const Home = () => {
   return (
@@ -21,6 +23,8 @@ const Home = () => {
       <Trending />
       <AdsImages />
       <Trending />
+      <HomeDecor/>
+      
     </div>
   );
 };

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const NavSocialIcon = () => {
   return (
-    <div className="flex md:flex-row flex-row-reverse items-center gap-2">
+    <div className="flex md:flex-row flex-row-reverse items-center  gap-2">
       <div className="text-[#365493] rounded-full  p-[2px]  md:p-2">
         <FaFacebook className="text-3xl md:w-10 w-5" />
       </div>
