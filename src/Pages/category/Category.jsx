@@ -80,8 +80,8 @@ const Category = () => {
     <div className="max-w-screen-xl mx-auto px-4 mt-4">
        <Helmet>
                 <meta charSet="utf-8" />
-                <title>Classy Style | Category</title>
-                
+                <title>Category | Grain Pastry & Bakery</title>
+                <link rel="canonical" href="http://static.ajkerdeal.com/images/dealdetails/ad-logo.svg" />
             </Helmet>
 
       <div className="flex flex-col md:flex-row gap-6 mt-8">

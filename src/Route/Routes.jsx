@@ -9,11 +9,14 @@ import Login from "../Pages/login/Login";
 import Registration from "../Pages/registration/Registration";
 import Category from "../Pages/category/Category";
 import AllCategory from "../Pages/allCategory/AllCategory";
+import ErrorPage from "../Pages/errorPage/ErrorPage";
+// import ErrorPage from "../Pages/errorPage/ErrorPage";
 
 const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: "/",
@@ -51,6 +54,7 @@ const Routes = createBrowserRouter([
         path: "/registration",
         element: <Registration />,
       },
+     
     ],
   },
 ]);

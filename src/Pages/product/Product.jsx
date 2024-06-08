@@ -161,17 +161,14 @@ const Product = () => {
             <div className="flex-1">
               <Link to='/landing'>
               <button className="bg-[#2abbe8] hover:bg-[#0881a6] w-full py-2 font-semibold text-white rounded">
-                Buy Now
+                Quick Order
               </button>
               </Link>
             </div>
             <div className="flex-1">
-              <Link
-                to="/cart"
-                className="bg-[#f57224] hover:bg-[#7e3003] w-full py-2 lg:px-10 md:px-5 px-3 font-semibold text-white rounded"
-              >
+              <div className="bg-[#f57224] hover:bg-[#7e3003] w-full py-2 lg:px-10 md:px-5 px-3 font-semibold text-white rounded">
                 Add To Cart
-              </Link>
+              </div>
             </div>
           </div>
         </div>

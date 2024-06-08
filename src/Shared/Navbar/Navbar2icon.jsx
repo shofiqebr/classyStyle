@@ -13,9 +13,11 @@ const Navbar2icon = () => {
         <TiArrowShuffle className="text-2xl" />
       </div>
       <div className="border py-1 px-1 rounded-full bg-[#27aae1] flex items-center gap-3">
+        <Link to='/cart'>
         <div className="bg-white rounded-full p-1">
         <CiShoppingCart className="text-2xl " />
         </div>
+        </Link>
         <div className="flex items-center">
           <TbCurrencyTaka className="text-2xl text-white" />
           <span className="font-bold text-xl text-white">0</span>
