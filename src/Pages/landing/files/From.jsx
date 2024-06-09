@@ -1,7 +1,13 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useForm} from "react-hook-form";
 
 const From = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   const [value, setValue] = useState("");
   const {
     register,
@@ -15,7 +21,7 @@ const From = () => {
   };
 
   return (
-    <section className="max-w-screen-xl mx-auto px-3 mt-8">
+    <section className="max-w-screen-xl mx-auto px-3 mt-8 pb-3">
       <div>
         <h1 className="text-3xl font-extrabold text-[#d3ac2b] text-center">
           অর্ডার করতে নিচের ফর্মটি সঠিক ভাবে পুরন করুন।

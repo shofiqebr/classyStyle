@@ -3,27 +3,29 @@ import Banner from "../../Components/Banner/Banner";
 import PopularCategory from "../../Components/PopularCategory/PopularCategory";
 import Trending from "../../Components/Trending/Trending";
 import AdsImages from "../../Components/AdsImages/AdsImages";
-import { Helmet } from "react-helmet-async";
+
 import HomeDecor from "../../Components/homeDecor/HomeDecor";
+import { GroupsContext, ItemContext, WebContext } from "../../Root";
+import { useContext } from "react";
+import Title from "../../Components/title/Title";
 // import MobileNavDown from "../../Components/mobileNavDown/MobileNavDown";
 
 const Home = () => {
+  const grpData = useContext(GroupsContext);
+  const webItmData = useContext(WebContext);
+  const itemData = useContext(ItemContext);
   return (
     <div className="max-w-screen-xl mx-auto px-4 mt-8">
 
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>Classy Style | Home</title>
-             
-            </Helmet>
+     <Title title="home" />
       <Banner />
-      <PopularCategory />
-      <Trending />
+      <PopularCategory grpData={grpData} />
+      <Trending grpData={grpData} webItmData={webItmData} itemData={itemData} />
       <AdsImages />
-      <Trending />
+      <Trending grpData={grpData} webItmData={webItmData} itemData={itemData}/>
       <AdsImages />
-      <Trending />
-      <HomeDecor/>
+      {/* <Trending /> */}
+      <HomeDecor grpData={grpData} webItmData={webItmData} itemData={itemData}/>
       
     </div>
   );

@@ -5,18 +5,14 @@ import category1 from '../../assets/category1.png'
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaChevronDown } from "react-icons/fa";
+import Title from "../../Components/title/Title";
 
 const AllCategory = () => {
     return (
         <div className="bg-[#F2F2F2] p-10 ">
 
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>All Category  | Grain Pastry & Bakery </title>
-                <link rel="canonical" href="http://static.ajkerdeal.com/images/dealdetails/ad-logo.svg" />
-            </Helmet>
 
-
+       <Title title="All Category " />
 
 
             <div className="bg-white max-w-[1100px] mx-auto p-3 pb-32 ">

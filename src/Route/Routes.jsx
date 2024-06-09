@@ -10,12 +10,15 @@ import Registration from "../Pages/registration/Registration";
 import Category from "../Pages/category/Category";
 import AllCategory from "../Pages/allCategory/AllCategory";
 import ErrorPage from "../Pages/errorPage/ErrorPage";
+import Form from '../Pages/landing/files/From'
+import { loader } from "../utilities/loader";
 // import ErrorPage from "../Pages/errorPage/ErrorPage";
 
 const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    loader: loader,
     errorElement: <ErrorPage/>,
     children: [
       {
@@ -23,7 +26,7 @@ const Routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/product",
+        path: "/item/:name",
         element: <Product />,
       },
       {
@@ -31,7 +34,7 @@ const Routes = createBrowserRouter([
         element: <Cart />,
       },
       {
-        path: "/category",
+        path: "/category/:id",
         element: <Category />,
       },
       {
@@ -43,12 +46,16 @@ const Routes = createBrowserRouter([
         element: <CheckOut />,
       },
       {
-        path: "/landing",
+        path: "/landing/:name",
         element: <Landing />,
       },
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/form",
+        element: <Form />,
       },
       {
         path: "/registration",
