@@ -86,14 +86,14 @@ const HomeDecor = (props) => {
 
 {/* tab area start */}
 
-        <div>
+        <div className="">
         <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList role="tablist" className="text-center md:block flex  justify-center tabs-bordered bg-transparent mt-10  ">
           {grpData.map((grp, index) => (
               <Tab
                 key={index}
                 role="tab"
-                className="tab md:h-8 h-14  overflow-hidden text-left text-[10px] md:text-xl  md:w-auto  bg-transparent  ">
+                className="tab md:h-8 h-14  overflow-hidden text-left text-[8px] md:text-xl md:w-auto  bg-transparent  ">
                {grp.name}
               </Tab>
              ))}
@@ -102,7 +102,7 @@ const HomeDecor = (props) => {
 
           {grpData.map((grp, index) => (
             <TabPanel key={index}  >
-    <section className="grid grid-cols-2 xl:grid-cols-4 lg:grid-cols-3 gap-10 md:grid-cols-2 mt-12 md:ml-5 lg:ml-20">
+    <section className="grid grid-cols-2 xl:grid-cols-4 lg:grid-cols-3 md:gap-10 gap-4 md:grid-cols-2 mt-12 md:ml-5 lg:ml-20 px-4 ">
       
     {webItmData
                     .filter((item) => item.item_group === grp.name)
