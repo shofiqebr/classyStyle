@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci";
-import { TbCurrencyTaka } from "react-icons/tb";
+// import { TbCurrencyTaka } from "react-icons/tb";
 import { TiArrowShuffle } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../Root";
@@ -16,17 +16,16 @@ const Navbar2icon = () => {
       <div className="border rounded-full p-2">
         <TiArrowShuffle className="text-2xl" />
       </div>
-      <div className="border relative py-1 px-1 rounded-full bg-[#27aae1] flex items-center gap-3">
+      <div className="border  py-1 px-1 rounded-full bg-[#27aae1] flex items-center gap-3">
         <Link to='/cart'>
         <div className="bg-white rounded-full p-1">
         <CiShoppingCart className="text-2xl " />
         </div>
         </Link>
         <div className="flex items-center">
-          <TbCurrencyTaka className="text-2xl text-white" />
-          <span className="font-bold text-xl text-white">0</span>
+        <span className="bg-[#27aae1] border-2 text-white font-bold px-2 py-[2px] rounded-full">{cartItems}</span>
         </div>
-        <span className="bg-white border-2 text-[#27aae1] font-bold badge badge-md absolute top-[-12px] -right-3">{cartItems}</span>
+        
       </div>
       <Link to='/login'>
       <div className="border-2 border-[#27aae1] p-2 rounded-full">

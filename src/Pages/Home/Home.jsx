@@ -8,7 +8,7 @@ import HomeDecor from "../../Components/homeDecor/HomeDecor";
 import { GroupsContext, ItemContext, WebContext } from "../../Root";
 import { useContext } from "react";
 import Title from "../../Components/title/Title";
-// import MobileNavDown from "../../Components/mobileNavDown/MobileNavDown";
+
 
 const Home = () => {
   const grpData = useContext(GroupsContext);
@@ -24,7 +24,6 @@ const Home = () => {
       <AdsImages />
       <Trending grpData={grpData} webItmData={webItmData} itemData={itemData}/>
       <AdsImages />
-      {/* <Trending /> */}
       <HomeDecor grpData={grpData} webItmData={webItmData} itemData={itemData}/>
       
     </div>

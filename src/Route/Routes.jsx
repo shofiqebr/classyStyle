@@ -12,6 +12,7 @@ import AllCategory from "../Pages/allCategory/AllCategory";
 import ErrorPage from "../Pages/errorPage/ErrorPage";
 import Form from '../Pages/landing/files/From'
 import { loader } from "../utilities/loader";
+import Profile from "../Pages/profile/Profile";
 // import ErrorPage from "../Pages/errorPage/ErrorPage";
 
 const Routes = createBrowserRouter([
@@ -56,6 +57,10 @@ const Routes = createBrowserRouter([
       {
         path: "/form",
         element: <Form />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
       {
         path: "/registration",
