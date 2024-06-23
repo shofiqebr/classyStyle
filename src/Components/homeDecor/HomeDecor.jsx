@@ -88,7 +88,7 @@ const HomeDecor = (props) => {
 
         <div className="">
         <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-          <TabList role="tablist" className="text-center md:block flex  justify-center tabs-bordered bg-transparent mt-10  ">
+          <TabList role="tablist" className="text-center md:block flex flex-wrap  justify-center tabs-bordered bg-transparent mt-10  ">
           {grpData.map((grp, index) => (
               <Tab
                 key={index}
@@ -102,13 +102,13 @@ const HomeDecor = (props) => {
 
           {grpData.map((grp, index) => (
             <TabPanel key={index}  >
-    <section className="grid grid-cols-2 xl:grid-cols-4 lg:grid-cols-3 md:gap-10 gap-4 md:grid-cols-2 mt-12 md:ml-5 lg:ml-20 px-4 ">
+    <section className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:gap-10 gap-4 md:grid-cols-2 mt-12 md:ml-5 lg:ml-20 px-4 ">
       
     {webItmData
                     .filter((item) => item.item_group === grp.name)
                     .map((itm, index) => (
       <Link to={`/item/${itm?.item_code}`} key={index}>
-      <div className="relative  text-center group transform duration-500 cursor-pointer">
+      <div className="relative  text-center group transform duration-500 cursor-pointer flex flex-col justify-center items-center">
         <div className="absolute hidden  group-hover:block md:top-8 lg:left-48 md:left-64 left-[70px] rounded-md  bg-white ">
           <div className="flex flex-col items-center justify-center gap-4 ">
             <div data-tip="Compare" className="tooltip tooltip-left">

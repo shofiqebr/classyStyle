@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const PopularCategory = (props) => {
   // console.log(props);
+  
   return (
     <div className="mt-16">
       <h1 className="text-3xl text-center font-bold text-[#f7941f]">
@@ -13,7 +14,7 @@ const PopularCategory = (props) => {
            w-64"
       />
 
-      <div className="flex items-center justify-center gap-12 flex-wrap mt-12">
+      <div className="flex items-center justify-center gap-12 xl:flex-nowrap flex-wrap mt-12">
 
       {props.grpData.map((group, index) => (
           <Link to={`/category/${index}`} key={index}>

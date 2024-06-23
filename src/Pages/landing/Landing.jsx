@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ItemContext } from "../../Root";
+// import { ItemContext } from "../../Root";
 import Title from "../../Components/title/Title";
 import { FaCheckCircle, FaShoppingCart } from "react-icons/fa";
+import { ItemContext } from "../../App";
 
 
 const Item = () => {

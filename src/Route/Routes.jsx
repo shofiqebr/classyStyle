@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Root from "../Root";
+// import Root from "../Root";
 import Home from "../Pages/Home/Home";
 import Product from "../Pages/product/Product";
 import Cart from "../Pages/cart/Cart";
@@ -9,16 +9,18 @@ import Login from "../Pages/login/Login";
 import Registration from "../Pages/registration/Registration";
 import Category from "../Pages/category/Category";
 import AllCategory from "../Pages/allCategory/AllCategory";
-import ErrorPage from "../Pages/errorPage/ErrorPage";
+
 import Form from '../Pages/landing/files/From'
 import { loader } from "../utilities/loader";
 import Profile from "../Pages/profile/Profile";
-// import ErrorPage from "../Pages/errorPage/ErrorPage";
+import App from "../App";
+import ErrorPage from "../Pages/errorPage/ErrorPage";
+
 
 const Routes = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <App />,
     loader: loader,
     errorElement: <ErrorPage/>,
     children: [

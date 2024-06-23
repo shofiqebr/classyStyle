@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { getStrdCart } from "../../utilities/cartBD";
+// import { getStrdCart } from "../../utilities/cartBD";
 import { useForm } from "react-hook-form";
 import Title from "../../Components/title/Title";
+import { getStrdCart } from "../../utilities/function";
 
 
 const Checkout = () => {

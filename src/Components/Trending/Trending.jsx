@@ -32,7 +32,7 @@ const Trending = (props) => {
 
         <div>
           <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-            <TabList role="tablist" className="text-center md:block flex  justify-center tabs-bordered bg-transparent mt-10  ">
+            <TabList role="tablist" className="text-center md:block flex flex-wrap justify-center tabs-bordered bg-transparent mt-10  ">
               {grpData.map((grp, index) => (
                 <Tab
                   key={index}
@@ -52,7 +52,7 @@ const Trending = (props) => {
                   {/* card part start */}
 
 
-                  <section className="grid grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-12">
+                  <section className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-12 ">
       
 
 
@@ -75,11 +75,14 @@ const Trending = (props) => {
             </div>
           </div>
         </div>
+
+        <div className="flex justify-center items-center">
         <img
-        className="rounded-md"
+        className="rounded-md w-60 h-72"
           src={`https://erp.icfix.com.bd${itm?.thumbnail}`}
           alt=""
         />
+        </div>
 
         <h1 className="md:text-xl text-lg my-5 font-semibold">
         {itm.item_group}

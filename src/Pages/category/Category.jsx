@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { GroupsContext, WebContext } from "../../Root";
+import { GroupsContext, WebContext } from "../../App";
 import Title from "../../Components/title/Title";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { CiHeart } from "react-icons/ci";
@@ -40,10 +40,10 @@ const Category = () => {
           onSelect={(index) => setTabIndex(index)}
           className="flex flex-col md:flex-row gap-6 mt-8">
           <div className="md:w-[20%] bg-white p-5 rounded">
-            <h1 className="text-sm">ফিল্টার</h1>
+            <h1 className="text-sm">Filter</h1>
             <hr className="mt-4" />
             <div className="mt-4">
-              <p className="font-bold text-xs">সাব ক্যাটাগরি</p>
+              <p className="font-bold text-xs">Sub Category</p>
               <TabList role="tablist">
                 {grpData.map((grp, index) => (
                   <Tab
@@ -55,7 +55,8 @@ const Category = () => {
                       <input
                         type="checkbox"
                         checked={checkedIndexes.includes(index)}
-                        className="checkbox checkbox-xs rounded-none checkbox-accent"
+                        className="checkbox checkbox-xs rounded-none"
+                        style={{ '--chkbg': '#F7941F', '--chkfg': '#ffffff' }}
                       />
                     </label>
 
@@ -71,12 +72,12 @@ const Category = () => {
               <TabPanel key={index} className="bg-transparent  ">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                   <h2 className="text-[18px] font-medium">
-                    {grp.name} - {itmCount(grp.name)} টি
+                    {grp.name} - {itmCount(grp.name)}
                   </h2>
                   <div>
                     <select className="select select-bordered select-xs w-52">
-                      <option value="sort">নতুন</option>
-                      <option value="popular">জনপ্রিয়</option>
+                      <option value="sort">New</option>
+                      <option value="popular">Popular</option>
                       {/* <option value="lowToHigh">দাম : সবচেয়ে কম থেকে বেশী</option> */}
                       {/* <option value="highToLow">দাম : সবচেয়ে বেশী থেকে কম</option> */}
                     </select>

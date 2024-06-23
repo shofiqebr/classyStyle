@@ -3,7 +3,7 @@ import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci";
 // import { TbCurrencyTaka } from "react-icons/tb";
 import { TiArrowShuffle } from "react-icons/ti";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../Root";
+import { CartContext } from "../../App";
 
 const Navbar2icon = () => {
 

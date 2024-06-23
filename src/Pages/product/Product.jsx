@@ -1,9 +1,9 @@
 import {useContext, useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
-// import {CartContext, ItemContext, WebContext} from "../App";
+// import {CartContext, ItemContext, UserContext, WebContext} from "../App";
 import {BsCashCoin} from "react-icons/bs";
 import {CiHeart, CiShare2} from "react-icons/ci";
-import {FaBangladeshiTakaSign, FaStar, FaStarHalf} from "react-icons/fa6";
+import {FaBangladeshiTakaSign} from "react-icons/fa6";
 import {IoIosInformationCircleOutline} from "react-icons/io";
 import {IoLocationOutline} from "react-icons/io5";
 import {MdOutlineDeliveryDining} from "react-icons/md";
@@ -12,14 +12,16 @@ import {TiStarFullOutline} from "react-icons/ti";
 import ReactImageMagnify from "react-image-magnify";
 import {Carousel} from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { CartContext, ItemContext, WebContext } from "../../Root";
-import Title from "../../Components/title/Title";
-import { addToCart } from "../../utilities/cartBD";
 // import Title from "../components/title/Title";
-// import {addToCart} from "../utilities/cartBD";
+// import {addToCart, getStrdCart, putCartDB} from "../utilities/functions";
+import {toast} from "react-toastify";
+import { CartContext, ItemContext, UserContext, WebContext } from "../../App";
+import Title from "../../Components/title/Title";
+import { addToCart, getStrdCart, putCartDB } from "../../utilities/function";
 
 const Product = () => {
   const {name} = useParams();
+  const {user} = useContext(UserContext);
   const {cartItems, setCartItems} = useContext(CartContext);
   const webItmData = useContext(WebContext);
   const itemData = useContext(ItemContext);
@@ -49,6 +51,13 @@ const Product = () => {
     if (addToCart(newItem)) {
       setCartItems(cartItems + 1);
     }
+
+    let cart = getStrdCart("cart");
+    putCartDB(user, cart).then((result) => {
+      if (result) {
+        toast("Cart Added");
+      }
+    });
   };
 
   return (
@@ -68,7 +77,6 @@ const Product = () => {
                       isFluidWidth: true,
                       src: `https://erp.icfix.com.bd${landing?.image}`,
                       height: 562,
-                      
                       width: 140,
                     },
                     largeImage: {
@@ -164,12 +172,20 @@ const Product = () => {
                   )}
                 </div>
                 <div className="flex-1">
-                  <button
-                    onClick={() => handleAddCart()}
-                    disabled={count > 0 ? false : true}
-                    className={`w-full py-2 lg:px-10 md:px-5 px-3 font-semibold text-white rounded ${count > 0 ? "bg-[#f57224] hover:bg-[#7e3003]" : "bg-gray-400 cursor-not-allowed"}`}>
-                    Add To Cart
-                  </button>
+                  {user ? (
+                    <button
+                      onClick={() => handleAddCart()}
+                      disabled={count > 0 ? false : true}
+                      className={`w-full py-2 lg:px-10 md:px-5 px-3 font-semibold text-white rounded ${count > 0 ? "bg-[#f57224] hover:bg-[#7e3003]" : "bg-gray-400 cursor-not-allowed"}`}>
+                      Add To Cart
+                    </button>
+                  ) : (
+                    <Link
+                      to={`/login`}
+                      className={`w-full py-2 lg:px-10 md:px-5 px-3 font-semibold text-white rounded ${count > 0 ? "bg-[#f57224] hover:bg-[#7e3003]" : "bg-gray-400 cursor-not-allowed"}`}>
+                      Add To Cart
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
@@ -246,121 +262,124 @@ const Product = () => {
             </div>
           </div>
           {/* Ratings & Reviews */}
-          <h1 className="mt-3 max-w-screen-xl mx-auto  font-bold">Ratings & Reviews</h1>
+          {/* <h1 className="mt-3 max-w-screen-xl mx-auto  font-bold">Ratings & Reviews</h1> */}
           <div className="max-w-screen-xl mx-auto mt-5 ">
-            <div className="flex flex-col md:flex-row  gap-4 ">
-              <div className="md:w-[80%] bg-white p-4">
-                <div className="flex flex-col md:flex-row lg:gap-12 md:gap-4">
-                  <div>
-                    <div>
-                      <div className="flex items-center gap-7">
-                        <h1 className="text-3xl font-semibold">4.1 </h1>
-                        <div className="bg-[#ffc700] w-28 p-1 flex gap-3 items-center">
-                          <img className="w-3 h-3" src="https://i.ibb.co/vjXrq43/O1-CN01-Av-JLRr1gxlv-S02-Jss-6000000004209-2-tps-24-24.png" alt="" />
-                          <p className="text-white">Very Good</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mt-6">
-                      <div className="flex items-center gap-2 text-[12px]">
-                        <div className="flex text-[#faca51]">
-                          <TiStarFullOutline className="text-[20px]" />
-                          <TiStarFullOutline className="text-[20px]" />
-                          <TiStarFullOutline className="text-[20px]" />
-                          <TiStarFullOutline className="text-[20px]" />
-                          <FaStarHalf className="text-[20px]" />
-                        </div>
-                        <p className="font-bold">155 ratings</p>
-                        {/* ({rating}) */}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="h-24 w-[1px] bg-gray-400 hidden md:block"></div>
-                  <div className="flex flex-col md:flex-row  gap-3">
-                    <div className="flex flex-col gap-3 -mt-1">
-                      <div className="flex text-[#faca51]">
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                      </div>
-                      <div className="flex text-[#faca51]">
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px] text-[#eff0f5]" />
-                      </div>
-                      <div className="flex text-[#faca51]">
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px] text-[#eff0f5]" />
-                        <TiStarFullOutline className="text-[20px] text-[#eff0f5]" />
-                      </div>
-                      <div className="flex text-[#faca51]">
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px] text-[#eff0f5]" />
-                        <TiStarFullOutline className="text-[20px] text-[#eff0f5]" />
-                        <TiStarFullOutline className="text-[20px] text-[#eff0f5]" />
-                      </div>
-                      <div className="flex text-[#eff0f5]">
-                        <TiStarFullOutline className="text-[20px] text-[#faca51]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px]" />
-                        <TiStarFullOutline className="text-[20px] " />
-                      </div>
-                    </div>
-                    <div className="flex flex-col p-3 gap-6">
-                      <progress className="progress progress-warning md:w-52" value={0} max="100"></progress>
-                      <progress className="progress progress-warning md:w-52" value="10" max="100"></progress>
-                      <progress className="progress progress-warning md:w-52" value="40" max="100"></progress>
-                      <progress className="progress progress-warning md:w-52" value="70" max="100"></progress>
-                      <progress className="progress progress-warning md:w-52" value="100" max="100"></progress>
-                    </div>
-                  </div>
-                </div>
-                <hr className="mt-12" />
-                {/* Comments Parts  */}
-                <div className="mt-3">
-                  <p className="text-sm">What people like about it</p>
-                  <hr className="mt-3" />
-                  <div className="flex items-center justify-between mt-3">
-                    <div className="flex items-center">
-                      <div className="flex items-center">
-                        <FaStar className="text-[#ffc700] text-[12px] "></FaStar>
-                        <FaStar className="text-[#ffc700] text-[12px]"></FaStar>
-                        <FaStar className="text-[#ffc700] text-[12px]"></FaStar>
-                        <FaStar className="text-[#ffc700] text-[12px]"></FaStar>
-                        <FaStarHalf className="text-[#ffc700] text-[12px]"></FaStarHalf>
-                      </div>
-                      <p className="text-[12px]">FaStarHalf</p>
-                    </div>
-                    <div>
-                      <p>4 weeks ago</p>
-                    </div>
-                  </div>
-                  <p className="mt-2 text-[12px]">যেমন দেখেছি হুবহু সেইম জিনিস পেয়েছি.... কাপড়টা প্রিমিয়াম একটা ফিল দেই.... আমার কাছে খুবই ভালো লেগেছে.... ধন্যবাদ সেলার ভাই কে....</p>
-                  <div></div>
-                </div>
-              </div>
-              <div className="md:w-[20%] bg-white p-2">
-                <h1 className="text-[12px] font-bold">People Who Viewed This Item Also Viewed</h1>
-
+            {/* <div className="flex flex-col md:flex-row  gap-4 "> */}
+            {
+              // <div className="md:w-[80%] bg-white p-4">
+              //   <div className="flex flex-col md:flex-row lg:gap-12 md:gap-4">
+              //     <div>
+              //       <div>
+              //         <div className="flex items-center gap-7">
+              //           <h1 className="text-3xl font-semibold">4.1 </h1>
+              //           <div className="bg-[#ffc700] w-28 p-1 flex gap-3 items-center">
+              //             <img className="w-3 h-3" src="https://i.ibb.co/vjXrq43/O1-CN01-Av-JLRr1gxlv-S02-Jss-6000000004209-2-tps-24-24.png" alt="" />
+              //             <p className="text-white">Very Good</p>
+              //           </div>
+              //         </div>
+              //       </div>
+              //       <div className="mt-6">
+              //         <div className="flex items-center gap-2 text-[12px]">
+              //           <div className="flex text-[#faca51]">
+              //             <TiStarFullOutline className="text-[20px]" />
+              //             <TiStarFullOutline className="text-[20px]" />
+              //             <TiStarFullOutline className="text-[20px]" />
+              //             <TiStarFullOutline className="text-[20px]" />
+              //             <FaStarHalf className="text-[20px]" />
+              //           </div>
+              //           <p className="font-bold">155 ratings</p>
+              //           {/* ({rating}) */}
+              //         </div>
+              //       </div>
+              //     </div>
+              //     <div className="h-24 w-[1px] bg-gray-400 hidden md:block"></div>
+              //     <div className="flex flex-col md:flex-row  gap-3">
+              //       <div className="flex flex-col gap-3 -mt-1">
+              //         <div className="flex text-[#faca51]">
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //         </div>
+              //         <div className="flex text-[#faca51]">
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px] text-[#eff0f5]" />
+              //         </div>
+              //         <div className="flex text-[#faca51]">
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px] text-[#eff0f5]" />
+              //           <TiStarFullOutline className="text-[20px] text-[#eff0f5]" />
+              //         </div>
+              //         <div className="flex text-[#faca51]">
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px] text-[#eff0f5]" />
+              //           <TiStarFullOutline className="text-[20px] text-[#eff0f5]" />
+              //           <TiStarFullOutline className="text-[20px] text-[#eff0f5]" />
+              //         </div>
+              //         <div className="flex text-[#eff0f5]">
+              //           <TiStarFullOutline className="text-[20px] text-[#faca51]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px]" />
+              //           <TiStarFullOutline className="text-[20px] " />
+              //         </div>
+              //       </div>
+              //       <div className="flex flex-col p-3 gap-6">
+              //         <progress className="progress progress-warning md:w-52" value={0} max="100"></progress>
+              //         <progress className="progress progress-warning md:w-52" value="10" max="100"></progress>
+              //         <progress className="progress progress-warning md:w-52" value="40" max="100"></progress>
+              //         <progress className="progress progress-warning md:w-52" value="70" max="100"></progress>
+              //         <progress className="progress progress-warning md:w-52" value="100" max="100"></progress>
+              //       </div>
+              //     </div>
+              //   </div>
+              //   <hr className="mt-12" />
+              //   {/* Comments Parts  */}
+              //   <div className="mt-3">
+              //     <p className="text-sm">What people like about it</p>
+              //     <hr className="mt-3" />
+              //     <div className="flex items-center justify-between mt-3">
+              //       <div className="flex items-center">
+              //         <div className="flex items-center">
+              //           <FaStar className="text-[#ffc700] text-[12px] "></FaStar>
+              //           <FaStar className="text-[#ffc700] text-[12px]"></FaStar>
+              //           <FaStar className="text-[#ffc700] text-[12px]"></FaStar>
+              //           <FaStar className="text-[#ffc700] text-[12px]"></FaStar>
+              //           <FaStarHalf className="text-[#ffc700] text-[12px]"></FaStarHalf>
+              //         </div>
+              //         <p className="text-[12px]">FaStarHalf</p>
+              //       </div>
+              //       <div>
+              //         <p>4 weeks ago</p>
+              //       </div>
+              //     </div>
+              //     <p className="mt-2 text-[12px]">যেমন দেখেছি হুবহু সেইম জিনিস পেয়েছি.... কাপড়টা প্রিমিয়াম একটা ফিল দেই.... আমার কাছে খুবই ভালো লেগেছে.... ধন্যবাদ সেলার ভাই কে....</p>
+              //     <div></div>
+              //   </div>
+              // </div>
+            }
+            <div>
+              {/* make uper div undo if not needed */}
+              <h1 className="text-[12px] font-bold">People Who Viewed This Item Also Viewed</h1>
+              <div className="flex gap-4 bg-white p-2">
                 {webItmData
                   .filter((web) => web.item_code !== name)
-                  .slice(0, 1)
+                  .slice(0, 4)
                   .map((itm, idx) => {
                     const foundItem = itemData.find((item) => item.name === itm.item_code);
                     const cost = foundItem ? foundItem.standard_rate : 0;
 
                     return (
                       <Link to={`../item/${itm.item_code}`} key={idx}>
-                        <div className="mt-4 hover:border hover:shadow p-2">
-                          <img src={`https://erp.icfix.com.bd${itm.website_image}`} alt="" />
+                        <div className="mt-4 hover:border hover:shadow p-2 w-72 flex flex-col justify-center items-center">
+                          <img className="w-44 h-56" src={`https://erp.icfix.com.bd${itm.website_image}`} alt="" />
                           <p>{itm.web_item_name} </p>
                           <p className="flex items-center text-[#ff6801] text-[17px]">
                             <TbCurrencyTaka />

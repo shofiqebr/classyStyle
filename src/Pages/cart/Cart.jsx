@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "../../Root";
-import { addToProceed, getStrdCart, removeToCart } from "../../utilities/cartBD";
+import { CartContext } from "../../App";
+import { addToProceed, getStrdCart, removeToCart } from "../../utilities/function";
 import Title from "../../Components/title/Title";
 import { RiDeleteBin6Line } from "react-icons/ri";
 

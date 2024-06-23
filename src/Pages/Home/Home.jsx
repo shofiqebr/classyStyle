@@ -5,9 +5,10 @@ import Trending from "../../Components/Trending/Trending";
 import AdsImages from "../../Components/AdsImages/AdsImages";
 
 import HomeDecor from "../../Components/homeDecor/HomeDecor";
-import { GroupsContext, ItemContext, WebContext } from "../../Root";
+// import { GroupsContext, ItemContext, WebContext } from "../../Root";
 import { useContext } from "react";
 import Title from "../../Components/title/Title";
+import { GroupsContext, ItemContext, WebContext } from "../../App";
 
 
 const Home = () => {

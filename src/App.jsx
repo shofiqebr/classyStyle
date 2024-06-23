@@ -6,18 +6,23 @@ import Footer from "./Shared/Footer/Footer";
 import Navbar4 from "./Shared/Navbar/Navbar4";
 import MobileNavDown from "./Components/mobileNavDown/MobileNavDown";
 import { createContext, useEffect, useState } from "react";
-import {getStrdCart} from "./utilities/cartBD";
+import {getStrdCart, getUserData} from "./utilities/function";
 
 
 export const GroupsContext = createContext([]);
 export const WebContext = createContext([]);
 export const ItemContext = createContext([]);
 export const CartContext = createContext();
+export const UserContext = createContext();
 
 
-const Root = () => {
+
+
+const App = () => {
   const {groups, webItems, items} = useLoaderData();
   const [cartItems, setCartItems] = useState(0);
+  const [userData, setUserData] = useState([]);
+  const [user, setUser] = useState("");
     // console.log('groups:', groups);
   useEffect(() => {
     let cart = getStrdCart("cart");
@@ -25,9 +30,28 @@ const Root = () => {
     // console.log(cartItems);
   }, []);
 
+  useEffect(() => {
+    let token = getStrdCart("token");
+    let parts = atob(decodeURIComponent(token)).split("_");
+    getUserData(parts[0], parts[1], `["*"]`)
+      .then((result) => {
+        if (result.length > 0) {
+          setUserData(result);
+          setUser(result[0]?.customer_name);
+        } else {
+          setUser(null);
+          setCartItems(0);
+          setUserData([]);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching user:", error);
+      });
+  }, [user]);
+
 
   return (
-
+    <UserContext.Provider value={{user, userData, setUser}}>
     <CartContext.Provider value={{cartItems, setCartItems}}>
     <GroupsContext.Provider value={groups}>
       <WebContext.Provider value={webItems}>
@@ -57,7 +81,8 @@ const Root = () => {
           </WebContext.Provider>
         </GroupsContext.Provider>
       </CartContext.Provider>
+      </UserContext.Provider>
   );
 };
 
-export default Root;
+export default App;
