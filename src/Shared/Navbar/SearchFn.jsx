@@ -8,7 +8,8 @@ const SearchFn = () => {
               name="id-s03"
               placeholder="Search here"
               aria-label="Search content"
-              className="relative h-12 lg:w-96 w-48 md:rounded  rounded-l-full border md:border-[#ff6900] border-[#27aae1] px-4 pr-12 text-sm text-slate-500 outline-none transition-all  invalid:border-pink-500 invalid:text-pink-500 focus:border-[#ff6900] focus:outline-none invalid:focus:border-pink-500 focus-visible:outline-none disabled:cursor-not-allowed  disabled:text-slate-400"
+              className="relative h-12 xl:w-[700px] lg:w-[450px]
+               w-48 md:rounded bg-[#E5E5E5]  rounded-l-full border md:border-[#ff6900] border-[#27aae1] px-4 pr-12 text-sm text-slate-500 outline-none transition-all  invalid:border-pink-500 invalid:text-pink-500 focus:border-[#ff6900] focus:outline-none invalid:focus:border-pink-500 focus-visible:outline-none disabled:cursor-not-allowed  disabled:text-slate-400"
             />
             <div className="bg-[#27aae1] cursor-pointer w-12 px-3 py-[14px] md:rounded-r-md rounded-r-full">
               <svg

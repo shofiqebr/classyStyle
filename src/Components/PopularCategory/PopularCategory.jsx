@@ -19,9 +19,9 @@ const PopularCategory = (props) => {
       {props.grpData.map((group, index) => (
           <Link to={`/category/${index}`} key={index}>
         <div className="flex items-center flex-col">
-          <h1 className="text-2xl font-bold ">{group.name}</h1>
+          <h1 className="text-lg font-semibold pb-5">{group.name}</h1>
           <img
-            className="w-32 h-32 p-3 rounded-full"
+            className="w-36 h-36 p-3 rounded-full"
             src={`https://erp.icfix.com.bd${group.image}`}
             alt=""
           />

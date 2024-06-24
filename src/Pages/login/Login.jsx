@@ -33,7 +33,7 @@ const Login = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="overflow-hidden rounded border bg-white text-slate-500 shadow-md shadow-slate-200">
           {/*  <!-- Body--> */}
           <div className="p-6">
-            <header className="mb-4 text-center bg-[#f85606] p-4 rounded ">
+            <header className="mb-4 text-center bg-[#F7941F] p-4 rounded ">
               <h3 className="text-xl flex items-center justify-center gap-3 font-medium text-white">
                 <CiUser className="text-2xl" />
                 Login
@@ -87,7 +87,7 @@ const Login = () => {
           </div>
           {/*  <!-- Action base sized basic button --> */}
           <div className="flex justify-end p-4 ">
-            <button className="inline-flex h-10 w-44 mx-auto items-center justify-center gap-2 whitespace-nowrap rounded bg-[#f85606] px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-[#9a471d] focus-visible:outline-none disabled:cursor-not-allowed disabled:shadow-none">
+            <button className="inline-flex h-10 w-44 mx-auto items-center justify-center gap-2 whitespace-nowrap rounded bg-[#F7941F] px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-[#9a471d] focus-visible:outline-none disabled:cursor-not-allowed disabled:shadow-none">
               <span>Login</span>
             </button>
           </div>

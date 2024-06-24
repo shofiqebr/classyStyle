@@ -125,10 +125,10 @@ const Cart = () => {
               <div className="mt-8 flex flex-col-reverse gap-6 lg:flex-row justify-between items-center">
                 <div className="flex gap-4 items-center">
                   <input className="text-center border rounded-full py-2 md:px-4 " type="text" name="" id="" placeholder="Coupon Code" />
-                  <button className="py-2 px-6 bg-red-500 hover:bg-red-800 font-bold text-white rounded-full text-sm">APPLY COUPON</button>
+                  <button className="py-2 px-6 bg-[#F7941F] hover:bg-red-800 font-bold text-white rounded-full text-sm">APPLY COUPON</button>
                 </div>
                 <div>
-                  <button className="py-2 px-6 bg-red-400 hover:bg-red-800 font-bold text-white rounded-full text-sm">UPDATE CART</button>
+                  <button className="py-2 px-6 bg-[#F7941F] hover:bg-red-800 font-bold text-white rounded-full text-sm">UPDATE CART</button>
                 </div>
               </div>
             </div>
@@ -153,7 +153,7 @@ const Cart = () => {
                 <p className="font-semibold text-xl">Total</p>
                 <p className="text-xl font-semibold text-[#db3a87]">{totalPrice}৳ </p>
               </div>
-              <div className="bg-red-500 hover:bg-red-800 rounded-full text-center p-2 mt-6">
+              <div className="bg-[#F7941F] hover:bg-red-800 rounded-full text-center p-2 mt-6">
                 <button onClick={() => handleProceed()} className="text-white text-sm font-bold">
                   PROCEED TO CHECKOUT
                 </button>

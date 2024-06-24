@@ -175,7 +175,7 @@ const Checkout = () => {
                   </p>
                 </label>
               </div>
-              <div className="bg-red-500 hover:bg-red-800 rounded-full text-center p-2 mt-6">
+              <div className="bg-[#F7941F] hover:bg-red-800 rounded-full text-center p-2 mt-6">
                 <button className="text-white text-sm font-bold">PROCEED TO CHECKOUT</button>
               </div>
             </div>

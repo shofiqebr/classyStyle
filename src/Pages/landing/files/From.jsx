@@ -1,13 +1,7 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useForm} from "react-hook-form";
 
 const From = () => {
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-
   const [value, setValue] = useState("");
   const {
     register,
@@ -21,14 +15,13 @@ const From = () => {
   };
 
   return (
-    <section className="max-w-screen-xl mx-auto px-3 mt-8 pb-3">
+    <section className="max-w-screen-xl mx-auto px-3 mt-8">
       <div>
-        <h1 className="text-3xl font-extrabold text-[#d3ac2b] text-center">
-          অর্ডার করতে নিচের ফর্মটি সঠিক ভাবে পুরন করুন।
+        <h1 className="text-3xl font-extrabold text-[#F7941F] text-center">
+          To Order fill up the form correctly
         </h1>
-        <p className="text-xl font-extrabold max-w-screen-md mx-auto text-red-500 text-center mt-4 leading-10	">
-          আবায়া/বোরকার সাইজ অর্ডার ফর্মে উল্লেখ করে অর্ডার করার অনুরোধ রইলো। <br />
-          ছবিতে কালারগুলো ভালোভাবে দেখে পছন্দ করে অর্ডার ফর্মে কালার উল্লেখ করে অর্ডার করার অনুরোধ।
+        <p className="text-xl font-extrabold max-w-screen-md mx-auto text-[#F7941F] text-center mt-4 leading-10	">
+       Please select all your preferences correctly to get the right product
         </p>
       </div>
       {/* From starts */}
@@ -38,74 +31,74 @@ const From = () => {
             <h1 className="text-xl font-semibold">Billing details</h1>
             <div className="mt-4 ">
               <label className="block text-sm font-bold mb-2">
-                আপনার নাম <span className="text-red-500">*</span>
+                Name <span className="text-red-500">*</span>
               </label>
               <input
                 className="bg-gray-200  focus:outline-none focus:shadow-outline border border-gray-300  py-3 px-4 block w-full appearance-none"
                 type="text"
                 {...register("name", {required: true})}
-                placeholder="আপনার নাম লিখুন"
+                placeholder="Name"
                 id="text"
                 autoComplete="text"
               />
-              {errors.name && <p className="text-red-600">আপনার নাম is Required</p>}
+              {errors.name && <p className="text-red-600">Name is Required</p>}
             </div>
             <div className="mt-4 ">
               <label className="block text-sm font-bold mb-2">
-                আপনার ঠিকানা <span className="text-red-500">*</span>
+                Address <span className="text-red-500">*</span>
               </label>
               <input
                 className="bg-gray-200  focus:outline-none focus:shadow-outline border border-gray-300  py-3 px-4 block w-full appearance-none"
                 type="text"
                 {...register("address", {required: true})}
-                placeholder="আপনার ঠিকানা লিখুন"
+                placeholder="Address"
                 id="text"
                 autoComplete="text"
               />
-              {errors.address && <p className="text-red-600">আপনার ঠিকানা is Required</p>}
+              {errors.address && <p className="text-red-600">Address is Required</p>}
             </div>
             <div className="mt-4 ">
               <label className="block text-sm font-bold mb-2">
-                মোবাইল নাম্বার <span className="text-red-500">*</span>
+                Mobile No.<span className="text-red-500">*</span>
               </label>
               <input
                 className="bg-gray-200  focus:outline-none focus:shadow-outline border border-gray-300  py-3 px-4 block w-full appearance-none"
                 type="number"
                 {...register("number", {required: true})}
-                placeholder="আপনার মোবাইল নাম্বার"
+                placeholder="Mobile No."
                 id="number"
                 autoComplete="number"
               />
-              {errors.number && <p className="text-red-600">মোবাইল নাম্বার is Required</p>}
+              {errors.number && <p className="text-red-600">Mobile No. is Required</p>}
             </div>
             <div className="mt-4">
               <h4 className="text-xl lg:text-2xl font-semibold">
                 Country / Region <span className="text-red-500">*</span>
               </h4>
-              <h4 className="mt-3 font-bold">কালার * </h4>
+              <h4 className="mt-3 font-bold">color * </h4>
               <div onChange={(e) => setValue(e.target.name)}>
                 <label className="flex px-3 py-2 my-3 cursor-pointer ">
-                  <input className="accent-red-500" id="1" value="1" type="radio" name="ডিপ সি-গ্রীন কালার" />
-                  <i className="pl-2">ডিপ সি-গ্রীন কালার</i>
+                  <input className="accent-red-500" id="1" value="1" type="radio" name="Deep Sea Greeen Color" />
+                  <i className="pl-2">Deep Sea Greeen Color</i>
                 </label>
                 <label className="flex px-3 py-2 my-3 cursor-pointer ">
-                  <input className="accent-red-500" id="2" value="2" type="radio" name="রোজ পিংক কালার" />
+                  <input className="accent-red-500" id="2" value="2" type="radio" name="Rose Pink Color" />
 
-                  <i className="pl-2">রোজ পিংক কালার</i>
+                  <i className="pl-2">Rose Pink Color</i>
                 </label>
                 <label className="flex px-3 py-2 my-3 cursor-pointer ">
-                  <input className="accent-red-500" type="radio" name="ব্ল্যাক কালার" />
+                  <input className="accent-red-500" type="radio" name="Black Color" />
 
-                  <i className="pl-2">ব্ল্যাক কালার</i>
+                  <i className="pl-2">Black Color</i>
                 </label>
                 <label className="flex px-3 py-2 my-3 cursor-pointer ">
-                  <input className="accent-red-500" type="radio" name="অলিভ কালার" />
+                  <input className="accent-red-500" type="radio" name="Olive Color" />
 
-                  <i className="pl-2">অলিভ কালার</i>
+                  <i className="pl-2">Olive Color</i>
                 </label>
               </div>
               <div className="mt-6">
-                <h1 className="font-bold">সাইজ (optional)</h1>
+                <h1 className="font-bold">Size (optional)</h1>
                 <label className="flex px-3 py-2 my-3 cursor-pointer ">
                   <input className="accent-red-500" id="1" value="1" type="radio" name="52" />
                   <i className="pl-2">52</i>
@@ -121,14 +114,14 @@ const From = () => {
                   <i className="pl-2">56</i>
                 </label>
                 <label className="flex px-3 py-2 my-3 cursor-pointer ">
-                  <input className="accent-red-500" type="radio" name="কাস্টমাইজ" />
+                  <input className="accent-red-500" type="radio" name="Customize" />
 
-                  <i className="pl-2">কাস্টমাইজ</i>
+                  <i className="pl-2">Customize</i>
                 </label>
               </div>
             </div>
             <div className="">
-              <button className="border border-red-500 p-5" type="submit">
+              <button className="border border-[#F7941F] p-5" type="submit">
                 Buy Products
               </button>
             </div>
@@ -162,23 +155,23 @@ const From = () => {
             <div>
               <label className="flex px-3 py-2 my-3 cursor-pointer ">
                 <input className="accent-red-500" id="1" value="1" type="radio" name="52" />
-                <i className="pl-2">ঢাকার বাহিরে: 110.00৳ </i>
+                <i className="pl-2">Outside Dhaka: 110.00TK </i>
               </label>
               <label className="flex px-3 py-2 my-3 cursor-pointer ">
                 <input className="accent-red-500" id="2" value="2" type="radio" name="54" />
 
-                <i className="pl-2">ঢাকার ভিতরে: 60.00৳ </i>
+                <i className="pl-2">Inside Dhaka: 60.00TK </i>
               </label>
             </div>
           </div>
           <p className="w-full border border-dotted mt-3"></p>
           <div className="flex items-center justify-between mt-3">
             <h1 className="font-bold">Total </h1>
-            <h1 className="font-bold">2,000.00৳</h1>
+            <h1 className="font-bold">2,000.00TK</h1>
           </div>
           <div className="bg-[#f7f7f7] mt-7 p-3">
-            <h1>ক্যাশঅন ডেলিভারি</h1>
-            <p className="mt-2">হাতে পন্য পেয়ে পেমেন্ট করুন</p>
+            <h1>Cash On Delivery</h1>
+            <p className="mt-2">Pay after product delivery (hnad to hand) </p>
           </div>
           <div>
             <button></button>

@@ -123,7 +123,7 @@ const HomeDecor = (props) => {
           </div>
         </div>
         <img
-        className="rounded-md"
+        className="rounded-md w-60 h-72"
           src={`https://erp.icfix.com.bd${itm?.thumbnail}`}
           alt=""
         />
