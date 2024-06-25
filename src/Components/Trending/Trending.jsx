@@ -84,11 +84,12 @@ const Trending = (props) => {
         />
         </div>
 
-        <h1 className="md:text-xl text-lg my-5 font-semibold">
+        {/* <h1 className="md:text-xl text-lg my-5 font-semibold">
         {itm.item_group}
-        </h1>
-        <p>
-        {itm.web_item_name}
+        </h1> */}
+        <p className="md:text-xl text-lg my-5 font-medium">
+          {itm.web_item_name.length>20? (itm.web_item_name.slice(0,20)) + '...' : itm.web_item_name}
+        
         </p>
         <h2 className="font-semibold ">
           {" "}

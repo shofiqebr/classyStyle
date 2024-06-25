@@ -35,6 +35,7 @@ export const loader = async () => {
     }
   );
   const items = await itmRate.json();
+  console.log(groups, webItems,items);
 
   return {groups, webItems, items};
   

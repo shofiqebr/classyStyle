@@ -204,17 +204,17 @@ const Registration = () => {
               <span>Register</span>
             </button>
           </div>
-          <div className="mt-4 text-center">
-            <p className="font-bold mb-2">অথবা</p>
+          <div className="mt-4 text-center pb-3">
+            <p className="font-bold mb-2">Or</p>
             <Link to="/login" className="cursor-pointer text-xs font-bold text-[#f85606] hover:text-red-600">
-              লগইন
+              Login
             </Link>
-            <div className="w-44 bg-slate-200 hover:bg-slate-100 p-2 rounded mx-auto mt-5 mb-7">
+            {/* <div className="w-44 bg-slate-200 hover:bg-slate-100 p-2 rounded mx-auto mt-5 mb-7">
               <button className="flex items-center gap-4 font-semibold text-black">
                 <img className="size-7" src={logo} alt="" />
                 Google Login
               </button>
-            </div>
+            </div> */}
           </div>
         </form>
       </div>

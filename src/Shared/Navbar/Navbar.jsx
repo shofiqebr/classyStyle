@@ -39,7 +39,7 @@ const Navbar = () => {
               <img className="w-10" src={logo} alt="" />
               <div>
                 <p className="font-bold">e-Mail Support</p>
-                <p>fake@gmail.com</p>
+                <p>demoemail@gmail.com</p>
               </div>
             </div>
             <div className="hidden md:block px-4 py-2 bg-[#2794E9EA] text-white hover:bg-[#f7941f] hover:text-black rounded-full ml-3 ">
